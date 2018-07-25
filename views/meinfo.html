@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <link type="text/css" rel="stylesheet" href="/static/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/style4.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script>
+        document.documentElement.style.fontSize = window.innerWidth / 375 * 50 + 'px';
+    </script>
+    <title>有糖有蜜</title>
+    <style>
+        .alert {
+            min-width: 10px;
+            max-width: 280px;
+            position: fixed;
+            bottom: 80px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 6px;
+            color: #eee;
+            font-size: 16px;
+            padding: 10px 15px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            left: 50%;
+            -webkit-transform: translate3d(-50%, 0, 0);
+            -webkit-animation: alert 4s;
+            font-size: .24rem;
+            line-height: .3rem;
+        }
+        
+        @-webkit-keyframes alert {
+            0% {
+                -webkit-transform: translate3d(-50%, 0, 0);
+                opacity: 0;
+            }
+            10% {
+                -webkit-transform: translate3d(-50%, -30px, 0);
+            }
+            15% {
+                -webkit-transform: translate3d(-50%, -25px, 0);
+                opacity: 1;
+            }
+            100% {
+                -webkit-transform: translate3d(-50%, -25px, 0);
+            }
+        }
+        
+        #adddress {
+            width: 100%;
+            height: .9rem;
+            margin-top: .2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #adddress i {
+            display: block;
+            width: .5rem;
+            height: .5rem;
+            margin-right: .2rem;
+            background: url('/static/images/添加地址.png');
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <from>
+        <div class="wrap">
+            <header>
+                蜜语箱
+                <a href="/personal"> <i>0</i></a>
+            </header>
+		 {{range .Ordss}}
+            <section class="section">
+                <div class="main">
+                    <div class="h3">
+                       <i>0</i>
+                        <p>恋爱季</p>
+                    </div>
+                    <dl class="wroker">
+                        <dt>
+                    <img src="/static/images/图层-4@2x.png" alt="">
+                </dt>
+                        <dd>
+						
+                            <div class="name">
+                                <span>{{.U_name}}</span>
+                            </div>
+							
+                            <div class="address">
+                                 {{.U_infor}}
+                            </div>
+                            <div class="name pr">
+                                <span>￥ {{.U_price}}.00</span>
+                            </div>
+                        </dd>
+                    </dl>
+                    <div class="h1">
+                        <i>0</i>
+                        <p>{{.ordname}} | {{.U_tel}}</p>
+                    </div>
+                    <div class="h2">
+                        <i>0</i>
+                        <p>地址：{{.U_address}}</p>
+                    </div>
+                    <div class="riddle">
+                        <i>0</i>
+                        <i>0</i>
+                        <p>
+                            {{.U_info}}
+                        </p>
+                    </div>
+                    <div class="h4">
+                        <div class="left">
+                            <i></i> 密钥：
+                            <span>
+                                17122
+                            </span>
+                        </div>
+                        <div class="right">
+                            用户通过密钥开启并收听您的心意
+                        </div>
+                    </div>
+                </div>
+            </section>
+ {{end}}
+            <!--<div class="header">
+                <a href="javascript:;" class="a2">
+                    <p>需付: ￥<b id="price">500.</b>00</p>
+                </a>
+                <a href="javascript:;" class="a3">
+                    <input type="button" name="" id="button">
+                </a>
+            </div>-->
+        </div>
+    </from>
+</body>
+<script type='text/javascript' src="/static/js/index4.js"></script>
+<script>
+    var a = '北京东城区王府井银泰五层北京东城区王府井银泰五层北京东城区王府井银泰五层北京东城区王府井银试试北京东城区王府井银泰五层北京东城区王府井银泰五层北京东城区王府井银泰五层北京东城';
+    //  alert(a.length)
+</script>
+
+</html>

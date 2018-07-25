@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <link type="text/css" rel="stylesheet" href="/static/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/style13.css">
+    <link rel="stylesheet" href="/static/css/swiper-3.3.1.min.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script>
+        document.documentElement.style.fontSize = window.innerWidth / 375 * 50 + 'px';
+    </script>
+    <title>产品详情-有糖有蜜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .alert {
+            min-width: 10px;
+            max-width: 280px;
+            position: fixed;
+            bottom: 80px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 6px;
+            color: #eee;
+            font-size: 16px;
+            padding: 10px 15px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            left: 50%;
+            -webkit-transform: translate3d(-50%, 0, 0);
+            -webkit-animation: alert 4s;
+            font-size: .24rem;
+            line-height: .3rem;
+        }
+        
+        @-webkit-keyframes alert {
+            0% {
+                -webkit-transform: translate3d(-50%, 0, 0);
+                opacity: 0;
+            }
+            10% {
+                -webkit-transform: translate3d(-50%, -30px, 0);
+            }
+            15% {
+                -webkit-transform: translate3d(-50%, -25px, 0);
+                opacity: 1;
+            }
+            100% {
+                -webkit-transform: translate3d(-50%, -25px, 0);
+            }
+        }
+        
+        #box {
+            width: 100%;
+            height: 7.5rem;
+            background-size: cover;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <section class="section">
+            <div class="pro">
+                <img src="/static/images/05@2x.png" alt="">
+            </div>
+            <div class="list">
+                <h1>美好的时光，甜蜜的爱意，一点一丝都滴在心里。</h1>
+                <div class="name">滴翠</div>
+                <div class="price">￥268.00</div>
+                <div class="zan"><i>0</i>764</div>
+                <div class="small">
+                    巧夺天工，还要与众不同。</br>
+                    华贵雍容，还有魅力无穷。
+                </div>
+                <div class="img">
+                    <img src="/static/images/绘@2x.png" alt="">
+                </div>
+                <div class="text">
+                    国内顶级设计师亲自执笔绘制而成。娴熟灵活的绘画功底，别具匠心的设计创意，一笔一划都饱含心血，一点一滴都浸满灵感。
+                </div>
+                <div class="img">
+                    <img src="/static/images/雕@2x.png" alt="">
+                </div>
+                <div class="text">
+                    纯手工雕蜡，老江湖亲自捉刀。古老的手艺人在雕刻时，如老僧入定，不苟分毫；手动处，如庖丁解牛，纤毫毕现。手工雕蜡，雕的不仅是形美，还有灵魂，它把时光一并雕入，有岁月的光芒。
+                </div>
+                <div class="img">
+                    <img src="/static/images/执@2x.png" alt="">
+                </div>
+                <div class="text">
+                    专业执模老师修正倒金后的半成品首饰。去棱角，去沙面，不多一厘，不少一毫，每一步都妙到毫厘，每一个细节都与设计图保持一致，像是从图纸里拿出来的一样。
+                </div>
+                <div class="img">
+                    <img src="/static/images/成@2x.png" alt="">
+                </div>
+                <div class="text">
+                    历经配石、车石、镶嵌、抛光、清洗、刻字、电镀等严格细致的程序，再进行仔细的检查，确认每一个细节都完好无误之后，再进行精致美观的的包装。
+                </div>
+                <div class="specification">
+                    <h2>S925纯银</h2>
+                    <p>材质：S925纯银</p>
+                    <p>主石：粉色、AAA级施华洛世奇水钻</p>
+                    <p>配石：粉色、AAA级施华洛世奇水钻</p>
+                </div>
+                <div class="heart">
+                    <img src="/static/images/footer@2x.png" alt="">
+                </div>
+            </div>
+        </section>
+        <div class="header">
+            <a href="javascript:;" class="a1">
+                <i></i> 首页
+            </a>
+            <a href="javascript:;" class="a2">
+                <p>￥<b id="price">268.00  </b>
+                    <!-- <i>￥52.00</i> --></p>
+                <p>  已有1111人定制  </p>
+            </a>
+            <a href="javascript:;" class="a3">
+                <input type="button" onclick="window.open('/firm_order/{{.uid}}')">
+            </a>
+        </div>
+    </div>
+</body>
+<script>
+    var arr = [{
+        id: 1
+    }, {
+        id: 2
+    }, {
+        id: 3
+    }]
+    var b = {
+        id: 4
+    }
+    var falg = true;
+    arr.forEach((v) => {
+        if (v.id == b.id) {
+            falg = false;
+        }
+    })
+    if (falg) {
+        arr.push(b)
+    }
+    console.log(arr)
+</script>
+
+</html>

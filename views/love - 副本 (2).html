@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <link type="text/css" rel="stylesheet" href="static/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/swiper-3.3.1.min.css">
+    <script src="static/js/jquery.min.js"></script>
+    <script>
+        document.documentElement.style.fontSize = window.innerWidth / 375 * 50 + 'px';
+    </script>
+    <title>有糖有蜜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .alert {
+            min-width: 10px;
+            max-width: 280px;
+            position: fixed;
+            bottom: 80px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 6px;
+            color: #eee;
+            font-size: 16px;
+            padding: 10px 15px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            left: 50%;
+            -webkit-transform: translate3d(-50%, 0, 0);
+            -webkit-animation: alert 4s;
+            font-size: .24rem;
+            line-height: .3rem;
+        }
+        
+        @-webkit-keyframes alert {
+            0% {
+                -webkit-transform: translate3d(-50%, 0, 0);
+                opacity: 0;
+            }
+            10% {
+                -webkit-transform: translate3d(-50%, -30px, 0);
+            }
+            15% {
+                -webkit-transform: translate3d(-50%, -25px, 0);
+                opacity: 1;
+            }
+            100% {
+                -webkit-transform: translate3d(-50%, -25px, 0);
+            }
+        }
+        
+        #box {
+            width: 100%;
+            height: 7.5rem;
+            background-size: cover;
+            overflow: hidden;
+        }
+        
+        section {
+            background: #fcfcfc;
+        }
+        
+        #box>div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            background-size: cover;
+        }
+        
+        #box>div>div {
+            position: absolute;
+            transform: preserve-3d;
+            background-size: cover;
+        }
+        
+        #box {
+            position: relative;
+            z-index: 9999999999999999999999999;
+            background: #fcfcfc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            定 制
+        </header>
+        <section class="section">
+            <div id="box">
+            </div>
+            <p id="name"></p>
+            <div id="chose">
+                <button id="dislike"></button>
+                <button id="like">
+                </button>
+            </div>
+        </section>
+        <div class="header">
+            <a href="javascript:;" class="a1">
+                <i></i> 首页
+            </a>
+            <a href="javascript:;" class="a2">
+                <p>￥<b id="price">32.00  </b> <i>￥52.00</i></p>
+                <p>已有1111人定制</p>
+            </a>
+            <a href="javascript:;" class="a3">
+                <input type="button" name="">
+            </a>
+        </div>
+    </div>
+</body>
+<script src="static/js/swiper-3.4.2.min.js"></script>
+<script>
+    ;
+    (function() {
+        var mySwiper = new Swiper('.banner', {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            autoplay: 1000,
+        })
+    })()
+</script>
+<script src="static/js/index.js"></script>
+
+</html>

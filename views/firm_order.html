@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/style2.css">
+        <link type="text/css" rel="stylesheet" href="/static/css/style13.css">
+    <script src="/static/js/jquery.min.js"></script>
+        <script>
+            document.documentElement.style.fontSize = window.innerWidth / 375 * 50 + 'px';
+    </script>
+    <title>有糖有蜜</title>
+</head>
+     <style>
+        .alert {
+            min-width: 10px;
+            max-width: 280px;
+            position: fixed;
+            bottom: 80px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 6px;
+            color: #eee;
+            font-size: 16px;
+            padding: 10px 15px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            left: 50%;
+            -webkit-transform: translate3d(-50%, 0, 0);
+            -webkit-animation: alert 4s;
+            font-size: .24rem;
+            line-height: .3rem;
+        }
+        
+        @-webkit-keyframes alert {
+            0% {
+                -webkit-transform: translate3d(-50%, 0, 0);
+                opacity: 0;
+            }
+            10% {
+                -webkit-transform: translate3d(-50%, -30px, 0);
+            }
+            15% {
+                -webkit-transform: translate3d(-50%, -25px, 0);
+                opacity: 1;
+            }
+            100% {
+                -webkit-transform: translate3d(-50%, -25px, 0);
+            }
+        }
+    </style>
+<body>
+    <form class="form-inline" method="Post" action="">
+  <div class="wrap">
+        <header>
+            确认订单
+            <i>0</i>
+        </header>
+        <section class="section">
+            <div class="h1">
+                <i>0</i>
+                <p>张先生 : 15643843385
+                 <input type="hidden" name="username" value="张先生">
+<input type="hidden" name="usertel" value="15643843385">
+             </p>
+            </div>
+            <div class="h2">
+                <i>0</i>
+                <p>
+<input type="hidden" name="useraddress" value="北京东城区王府井银泰in88五层">
+<input type="hidden" name="userprice" value="{{.Post.U_price}}">
+<input type="hidden" name="castid" value="{{.Post.Id}}">
+                地址：北京东城区王府井银泰in88五层</p>
+            </div>
+            <div class="colorline"></div>
+            <div class="h3">
+                <i>0</i>
+                <p><asp:Label ID="lanmu" runat="server" Text="恋爱季"></asp:Label></p>
+            </div>
+            <dl class="wroker">
+                <dt>
+                    <img src="../static/{{.Post.U_pic}} " alt="">
+                </dt>
+                <dd>
+                    <div class="name">
+                        <span>{{.Post.U_name}} </span>
+                    </div>
+                    <div class="address">
+                       {{.Post.U_infor}} 
+                    </div>
+                    <div class="name pr"> 
+                        <span>￥  {{.Post.U_price}}.</b>00 <asp:Label style="display: none" ID="uPrice"   runat="server"></asp:Label>
+                            <asp:Label style="display: none" ID="cpid2"   runat="server"></asp:Label>
+                        </span>
+                    </div>
+                </dd>
+            </dl>
+            <div class="btnbox">
+                <div class="add"></div>
+                <div class="no"></div>
+            </div>
+            <div class="line"></div>
+            <div class="giftbox">
+                <div class="gift">
+                    <div class="human">
+                        <div class="giftboy">
+                            <input type="text" value="null" name="nan" id="nan" runat="server"/>
+                              <i>0</i>
+                            <p>我是男票</p>
+                        </div>
+                        <div class="giftgirl">
+                            <i>0</i>
+                            <p>我是女票</p>
+                        </div>
+                    </div>
+                    <div class="text">
+ 
+                         <textarea id="sure" name="sure" rows="10" cols="30"   placeholder="你想对TA说"  runat="server"></textarea>
+                          <audio src='' id="">1231</audio>
+                        <div class="play">1</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="header">
+            <a href="javascript:;" class="a2">
+                <p>需付: ￥<b id="price">{{.Post.U_price}}.</b>00</p>
+            </a>
+            <input type="hidden" name="op" value="add">
+              <a href="javascript:;" class="a3">
+                <input type="submit" onclick="return checkInput();">
+            </a>
+<!--<button type="submit" class="btn btn-default" onclick="return checkInput();">我要下单</button>  -->     
+
+        </div>
+    </div>
+    </form>
+</body>
+    <script src="/static/js/index2.js"></script>
+            <script type="text/javascript">
+                function checkInput() {
+                    var uname = document.getElementById("sure");
+                    if (uname.value.length == 0) {
+                        alert("请输入LOVE");
+                        return false;
+                    }
+                }
+            </script>
+</html>

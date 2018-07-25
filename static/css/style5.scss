@@ -1,0 +1,144 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "苹方";
+}
+
+html,
+body,
+form,
+.wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: "微软雅黑";
+}
+
+body {
+    font-size: .32rem;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.section {
+    flex: 1;
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+header {
+    text-align: center;
+    line-height: .9rem;
+    font-size: .34rem;
+    height: .9rem;
+    border-bottom: .01rem solid #dcdcdc;
+    color: #fa404d;
+    position: relative;
+    i {
+        width: .48rem;
+        height: .48rem;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: .2rem;
+        margin-top: -.24rem;
+        background: url('../images/back@2x.png');
+        background-size: cover;
+        font-size: 0rem;
+    }
+}
+
+.main {
+    width: 90%;
+    margin: 0 auto;
+    border: 0.01rem solid #f7f5f6;
+    border-radius: .1rem;
+    box-shadow: 0.01rem 0.01rem 0.15rem #eeeeee;
+    margin-top: .3rem;
+    position: relative;
+}
+
+.show {
+    height: 3.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 600;
+    padding: .4rem 0;
+    line-height: .7rem;
+    i {
+        width: 1.4rem;
+        height: 1.4rem;
+        background: url("../images/right.png");
+        background-size: cover;
+    }
+}
+
+.info {
+    height: .4rem;
+    line-height: .4rem;
+    text-indent: .2rem;
+    font-size: .24rem;
+    font-weight: 500;
+}
+
+.line {
+    width: 100%;
+    height: .27rem;
+    background: url("../images/fgx.png");
+    background-size: 103% 100%;
+    background-position-x: -.12rem;
+}
+
+.deposit {
+    margin: .01rem 0;
+    padding: 0 .2rem;
+    height: .7rem;
+    line-height: .7rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: .28rem;
+}
+
+.btnbox {
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    div {
+        width: 1.28rem;
+        height: .58rem;
+        margin-right: .2rem;
+        font-size: 0rem;
+    }
+    div:nth-child(1) {
+        background: url('../images/bh.png');
+        background-size: cover;
+    }
+    div:nth-child(2) {
+        background: url('../images/ti.png');
+        background-size: cover;
+    }
+}
+
+.endline {
+    width: 100%;
+    height: .27rem;
+    background: url("../images/zd.png");
+    background-size: 103% 100%;
+    background-position-x: -.12rem;
+    position: absolute;
+    bottom: -.27rem;
+}

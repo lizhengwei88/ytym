@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <link type="text/css" rel="stylesheet" href="static/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/swiper-3.3.1.min.css">
+    <script src="static/js/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="static/js/jquery-2.2.3.min.js"></script>
+    <script>
+        document.documentElement.style.fontSize = window.innerWidth / 375 * 50 + 'px';
+    </script>
+    <title>有糖有蜜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .alert {
+            min-width: 10px;
+            max-width: 280px;
+            position: fixed;
+            bottom: 80px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 6px;
+            color: #eee;
+            font-size: 16px;
+            padding: 10px 15px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            left: 50%;
+            -webkit-transform: translate3d(-50%, 0, 0);
+            -webkit-animation: alert 4s;
+            font-size: .24rem;
+            line-height: .3rem;
+        }
+        
+        @-webkit-keyframes alert {
+            0% {
+                -webkit-transform: translate3d(-50%, 0, 0);
+                opacity: 0;
+            }
+            10% {
+                -webkit-transform: translate3d(-50%, -30px, 0);
+            }
+            15% {
+                -webkit-transform: translate3d(-50%, -25px, 0);
+                opacity: 1;
+            }
+            100% {
+                -webkit-transform: translate3d(-50%, -25px, 0);
+            }
+        }
+        
+        #box {
+            width: 100%;
+            height: 7.5rem;
+            background-size: cover;
+            overflow: hidden;
+        }
+        
+        section {
+            background: #fcfcfc;
+        }
+        
+        #box>div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            background-size: cover;
+        }
+        
+        #box>div>div {
+            position: absolute;
+            transform: preserve-3d;
+            background-size: cover;
+        }
+        
+        #box {
+            position: relative;
+            z-index: 9999999999999999999999999;
+            background: #fcfcfc;
+        }
+    </style>
+</head>
+
+<body>
+     <section class="section">
+            <div id="box">
+            </div>
+            <p id="name"></p>
+            <div id="chose">
+                <button id="dislike"></button>
+                <button id="like">
+                </button>
+            </div>
+        </section>
+    <div class="wrap">
+        <header>
+            定 制<select id="province">
+<option>请选择省份</option>
+</select>
+<select id="city">
+<option>请选择城市</option>
+</select>
+        </header>
+       
+        <div class="header">
+            <a href="javascript:;" class="a1">
+                <i></i> 首页
+            </a>
+            <a href="javascript:;" class="a2">
+                <p>￥<b id="price">32.00  </b> <i>￥52.00</i></p>
+                <p>已有1111人定制</p>
+            </a>
+            <a href="javascript:;" class="a3">
+                <input type="button" name="">
+            </a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+// 1. 页面加载时,执行Ajax请求 - $.get()
+//$(document).ready(function(){});
+$(function(){
+    var province = $("#province").val();
+    $.ajax({
+        url: '/ajax',
+        type: "POST",
+        data:{province:province},
+        dataType:"json",
+        //contentType: "application/json; charset=utf-8",
+        success:function(data){
+            //alert(data);
+            var res=eval("("+data+")");
+            $.each(res,function(i,item){
+                var option = "<option value='"+item.province+"'>"+item.province+"</option>";
+                $("#province").append(option);
+           });
+        }
+    });
+    })
+    </script>
+<script src="static/js/swiper-3.4.2.min.js"></script>
+<script>
+    ;
+    (function() {
+        var mySwiper = new Swiper('.banner', {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            autoplay: 1000,
+        })
+    })()
+</script>
+<script>
+    var msg = {
+        alert: function(t) {
+            var alt = document.querySelector('.alert');
+            /*1：移除原有alert，2：不移除，直接替换文字。*/
+            if (alt) { /*alt.parentNode.removeChild(alt);*/
+                alt.innerHTML = t;
+                return;
+            };
+            var h = document.createElement('div');
+            h.innerHTML = t || '为什么不说话 (╰_╯)';
+            h.setAttribute('class', 'alert');
+            document.querySelector('body').appendChild(h);
+            msg.fire(h);
+        },
+        fire: function(obj) {
+            var evt = ['webkitAnimationEnd', 'mozAnimationEnd', 'msAnimationEnd', 'oAnimationEnd', 'animationEnd'];
+            for (var i = 0; i < evt.length; i++) {
+                obj.addEventListener(evt[i], function() {
+                    this.parentNode.removeChild(this);
+                });
+            }
+        }
+    };
+    $("#box").on("touchstart", function(e) {
+        // 判断默认行为是否可以被禁用
+        if (e.cancelable) {
+            // 判断默认行为是否已经被禁用
+            if (!e.defaultPrevented) {
+                e.preventDefault();
+            }
+        }
+        startX = e.originalEvent.changedTouches[0].pageX,
+            startY = e.originalEvent.changedTouches[0].pageY;
+    });
+    // 图片
+    var imgs = [{
+        img: "static/images/1.jpg",
+        like: 'unlike',
+        name: '第一张',
+        price: '100.00'
+    }, {
+        img: "static/images/2.jpg",
+        like: 'unlike',
+        name: '第二张',
+        price: '200.00'
+    }, {
+        img: "static/images/3.jpg",
+        like: 'unlike',
+        name: '第三张',
+        price: '300.00'
+    }, {
+        img: "static/images/4.jpg",
+        like: 'like',
+        name: '第四张',
+        price: '400.00'
+    }];
+    //z-index的值
+    var z = 999999;
+    //显示第几张图片
+    var index = 0;
+    var box = document.getElementById('box')
+
+    boom(2, 2)
+        //l 传进来几行；t传进来几列;
+    var box = document.getElementById('box');
+
+    function boom(l, t) {
+        $('#name').html(imgs[index].name);
+        $('#price').html(imgs[index].price);
+        if (imgs[index].like == 'like') {
+            $('#like').css({
+                'background': 'url("static/images/fa.png")',
+                'background-size': 'cover'
+            });
+        } else {
+            $('#like').css({
+                'background': 'url("static/images/aixin.png")',
+                'background-size': 'cover'
+            });
+        }
+        //创建一个新的div
+
+        var oParentNode = document.createElement("div");
+        $(oParentNode).html(
+            `<div id="mark">
+                    <img src="static/images/xin.png" alt="">
+                </div>`);
+        oParentNode.style.background = "url(" + imgs[index].img + ") no-repeat";
+        oParentNode.style.backgroundSize = "89% 82%";
+        oParentNode.style.backgroundPosition = 'center';
+        //设置z-index的值
+        oParentNode.style.zIndex = z;
+        z--;
+        box.appendChild(oParentNode);
+        if (arguments[2] == 'left') {
+            $(oParentNode).css('marginLeft', '-6rem').animate({
+                'marginLeft': '0rem'
+            }, 400);
+        }
+        $("#box").on("touchend", function(e) {
+            // 判断默认行为是否可以被禁用
+            if (e.cancelable) {
+                // 判断默认行为是否已经被禁用
+                if (!e.defaultPrevented) {
+                    e.preventDefault();
+                }
+            }
+            moveEndX = e.originalEvent.changedTouches[0].pageX,
+                moveEndY = e.originalEvent.changedTouches[0].pageY,
+                X = moveEndX - startX,
+                Y = moveEndY - startY;
+            //左滑
+            if (X > 0) {
+                index--;
+                if (index < 0) {
+                    index = imgs.length - 1;
+                }
+                index == imgs.length && (index = 0);
+                $('#box').off('touchend');
+                boom(l, t, 'left');
+                $(oParentNode).animate({
+                    'marginLeft': '0rem',
+                    'opacity': 0
+                }, '1000');
+                setTimeout(function() {
+                    oParentNode.remove();
+                }, 300)
+            }
+            //右滑
+            else if (X < 0) {
+                index++;
+                index == imgs.length && (index = 0);
+                $('#box').off('touchend');
+                boom(l, t);
+                $(oParentNode).animate({
+                    'marginLeft': '-6rem',
+                    'opacity': 0
+                }, '800');
+                setTimeout(function() {
+                    oParentNode.remove();
+                }, 300)
+            }
+            //下滑
+            else if (Y > 0) {
+
+            }
+            //上滑
+            else if (Y < 0) {
+
+            }
+            //单击
+            else {
+                //alert('单击');
+            }
+            //$('#box').off('touchend')
+        });
+
+    }
+    $('#like').on('click', function() {
+        if (imgs[index].like == 'like') {
+            $(this).css({
+                'background': 'url("static/images/aixin.png")',
+                'background-size': 'cover'
+            })
+            msg.alert('不喜欢！')
+            imgs[index].like = 'unlike';
+        } else {
+            $(this).css({
+                'background': 'url("static/images/fa.png")',
+                'background-size': 'cover'
+            })
+
+            msg.alert('加入喜欢！')
+            imgs[index].like = 'like';
+        }
+
+
+    });
+    var time = null;
+    $('#dislike').on('click', function() {
+        if (!time) {
+            msg.alert('不喜欢！')
+            index++;
+            index == imgs.length && (index = 0);
+            $('#box').off('touchend');
+            boom('l', 't');
+            $('#box>div').eq(0).animate({
+                'marginLeft': '-6rem',
+                'opacity': 0
+            }, '800');
+            setTimeout(function() {
+                $('#box>div').eq(0).remove();
+                time = null;
+            }, 300)
+        }
+
+    })
+</script>
+
+</html>

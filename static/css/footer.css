@@ -1,0 +1,72 @@
+﻿.footer {
+    height: 0.98rem;
+    display: flex;
+    padding: 0rem 0.9rem;
+    justify-content: space-between;
+    position: relative;
+    z-index: 99;
+}
+
+.footer a {
+    height: 100%;
+    color: #484848;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: .2rem;
+}
+
+.footer a i.index {
+    background: url('../images/tab_011.png') no-repeat;
+    width: .56rem;
+    height: .56rem;
+    display: flex;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+.footer a i.bao {
+    background: url('../images/tab_021.png') no-repeat;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+.footer a i.my {
+    background: url('../images/tab_031.png') no-repeat;
+    width: .56rem;
+    height: .56rem;
+    display: flex;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+.footer a:nth-child(2) {
+    margin-top: -.1rem;
+}
+
+.footer a:nth-child(2) i {
+    margin-top: -.1rem;
+}
+
+.footer a:hover {
+    color: #fa404d;
+}
+
+.footer a:nth-child(1):hover i {
+    background: url('../images/tab_012.png');
+    background-size: cover;
+}
+
+.footer a:nth-child(2):hover i {
+    background: url('../images/tab_022.png');
+    background-size: cover;
+}
+
+.footer a:nth-child(3):hover i {
+    background: url('../images/tab_032.png');
+    background-size: cover;
+}
